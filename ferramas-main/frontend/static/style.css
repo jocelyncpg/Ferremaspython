@@ -168,3 +168,11 @@ footer p {
     background-color: #a71d2a;
     color: white;
 }
+
+.quienes-img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}

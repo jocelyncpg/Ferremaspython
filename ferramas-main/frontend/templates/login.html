@@ -1,26 +1,33 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Iniciar Sesión - Ferramas</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-  <h2>Iniciar Sesión</h2>
-  <form method="POST">
-    <label for="correo">Correo:</label>
-    <input type="email" name="correo" id="correo" required>
+<!-- templates/login.html -->
+{% extends "base.html" %}
 
-    <label for="password">Contraseña:</label>
-    <input type="password" name="password" id="password" required>
+{% block title %}Iniciar Sesión - Ferremas{% endblock %}
 
-    <button type="submit">Ingresar</button>
-  </form>
+{% block content %}
 
-  {% if mensaje %}
-    <p>{{ mensaje }}</p>
-  {% endif %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 60vh;">
+  <div class="card shadow p-4" style="width: 100%; max-width: 400px;">
+    <h3 class="text-center mb-4">Iniciar Sesión</h3>
+    <form method="POST" novalidate>
+      <div class="mb-3">
+        <label for="correo" class="form-label">Correo:</label>
+        <input type="email" class="form-control" name="correo" id="correo" required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Contraseña:</label>
+        <input type="password" class="form-control" name="password" id="password" required>
+      </div>
+      {% if mensaje %}
+      <div class="alert alert-danger" role="alert">
+        {{ mensaje }}
+      </div>
+      {% endif %}
+      <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+    </form>
+    <div class="text-center mt-3">
+      <a href="/" class="btn btn-secondary w-100">Volver al Inicio</a>
+    </div>
+  </div>
+</div>
 
-  <a href="/">Volver al Inicio</a>
-</body>
-</html>
+{% endblock %}
